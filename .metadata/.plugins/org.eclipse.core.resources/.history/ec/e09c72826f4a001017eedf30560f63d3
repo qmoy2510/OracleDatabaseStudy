@@ -1,0 +1,45 @@
+
+ 
+
+ 
+
+ 
+
+--모든 사원의 직급을 조회하기
+	select title from EMPLOYEE;
+	
+--모든 사원의 직급을 중복 없이 조회하기
+  select distinct title from EMPLOYEE;
+  
+--월급이 300만원~400만원인 사원의 모든 정보 조회하기
+ select *
+ from EMPLOYEE
+ where 3000000 <= salary and salary  <= 4000000
+
+--부서코드가 1인 사원의 모든 정보 조회하기
+select *
+from employee
+where dno in 1 or dno is not null
+
+
+--부서코드가 1이 아닌 사원의 모든정보 조회하기
+select *
+from employee
+where dno not in 1 or dno is null
+
+--부서코드가 1 또는 2인 사원의 모든 정보 조회하기
+select *
+from employee
+where dno = 1 or dno = 2
+
+--부서코드가 1또는 2가 아닌 사원의 모든 정보 조회하기
+select *
+from employee
+where dno != 1 and dno != 2 or dno is null
+
+
+
+
+
+
+

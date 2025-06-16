@@ -145,79 +145,37 @@ where rownum <= 2
 order by salary asc
 
 --급여의 내림차순으로 정렬한 후 상위 2개의 정보만 조회하기
-select *
-from EMPLOYEE
-where rownum <= 2
-order by salary desc
 
 --모든 사원의 수 조회하기
-select count(*)
-from EMPLOYEE
 
 --모든 사원의 평균 급여와 최대 급여를 조회하기
-select avg(salary), max(salary)
-from EMPLOYEE
 
 --모든 사원들의 중복을 제거한 급여의 개수와 평균 조회하기
-select count(distinct salary), avg(distinct salary)
-from EMPLOYEE
 
 --자신의 상관이 있는 사원의 수 조회하기
-select count(supervisor)
-from EMPLOYEE
 
 --급여의 평균을 소수점 둘째 자리까지 조회하기
-select to_char(avg(salary), '9999999999999.99')
-from employee
 
 --급여를 천 단위마다 쉼표 찍어서 조회하기
-select to_char(salary, '999,999,999,999')
-from employee
 
 --각 부서별 급여의 합계를 구하기
-select dno, sum(salary)
-from employee
-where dno is not null
-group by dno
 
 --각 부서별 사원수 구하기
-select dno, count(*)
-from employee
-where dno is not null
-group by dno
 
 --사원수가 2명 이상인 부서에 대해서 부서별 사원수 구하기
-select dno, count(*)
-from EMPLOYEE
-having count(*) >= 2
-group by dno
 
 --부서 번호가 1이 아닌 부서에 대하여 부서별 사원수 구하기
-select dno, count(*)
-from employee
-where dno != 1
-group by dno
 
 --평균급여가 300만원을 초과하는 부서에 대하여 부서별 사원수와 평균 급여
 --구하여 부서별 사원수의 오름차순으로 조회하기
-select dno, count(*), avg(salary)
-from employee
-having avg(salary) > 3000000
-group by dno
-order by count(*) asc
 
 --급여가 500만원 이하이고 부서가 있는 사원들에 대하여 사원들이 속한
 --부서번호별로 그룹화하고, 사원수가 2명 이상이면서 2번 부서가 아닌 부서에
 --대하여 부서번호, 부서별 사원수, 평균급여, 최대 급여를 조회하기
-select dno, count(*), avg(salary), max(salary)
-from employee
-where salary <= 5000000 and dno != 2
-having count(*) >= 2
-group by dno
 
 --유니온 사용
---김영희가 속한 부서이거나 영업부의 부서번호를 조회하기
 
+--김영희가 속한 부서이거나 영업부의 부서번호를 조회하기
 
 --김영희 또는 이민호가 속한 부서이거나 영업부의 부서 번호 조회하기
 
